@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const keySelect = document.getElementById('key-select');
     const categorySelect = document.getElementById('category-select');
     const scaleSelect = document.getElementById('scale-select');
-    const fretboardImg = document.getElementById('fretboard-img');
+    const fretboard = document.getElementById('fretboard').querySelector('img');
 
     const scaleOptions = {
         major: ["major"],
@@ -11,27 +11,27 @@ document.addEventListener('DOMContentLoaded', () => {
         church: ["ionian", "dorian", "phrygian", "lydian", "mixolydian", "aeolian", "locrian"]
     };
 
-    function updateScaleOptions() {
-        const category = categorySelect.value;
-        scaleSelect.innerHTML = "";
-        scaleOptions[category].forEach(scale => {
-            const opt = document.createElement("option");
+    function updateScaleSelect() {
+        const cat = categorySelect.value;
+        scaleSelect.innerHTML = '';
+        scaleOptions[cat].forEach(scale => {
+            const opt = document.createElement('option');
             opt.value = scale;
-            opt.textContent = scale.replace("_", " ").toUpperCase();
+            opt.textContent = scale.replace('_', ' ').toUpperCase();
             scaleSelect.appendChild(opt);
         });
-        updateImage();
+        updateFretboard();
     }
 
-    function updateImage() {
+    function updateFretboard() {
         const key = keySelect.value;
         const scale = scaleSelect.value;
-        fretboardImg.src = `images/${key}_${scale}.png`;
+        fretboard.src = `images/${key}_${scale}.png`;
     }
 
-    keySelect.addEventListener('change', updateImage);
-    categorySelect.addEventListener('change', updateScaleOptions);
-    scaleSelect.addEventListener('change', updateImage);
+    categorySelect.addEventListener('change', updateScaleSelect);
+    keySelect.addEventListener('change', updateFretboard);
+    scaleSelect.addEventListener('change', updateFretboard);
 
-    updateScaleOptions();
+    updateScaleSelect();
 });

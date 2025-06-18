@@ -1,48 +1,32 @@
 
 body {
-    background-image: url('images/background.png');
+    background-image: url('background.png');
     background-size: cover;
     color: white;
     font-family: sans-serif;
     text-align: center;
-    margin: 0;
     padding: 0;
-}
-
-header {
-    position: relative;
-    padding: 20px;
+    margin: 0;
 }
 
 .neon-header {
     font-size: 3em;
     color: #ff7ee3;
     text-shadow: 0 0 5px #fff, 0 0 10px #ff7ee3, 0 0 20px #ff7ee3;
-    margin: 0;
-}
-
-.mascot {
-    position: absolute;
-    right: 20px;
-    top: 20px;
-    width: 60px;
+    margin: 20px 0;
 }
 
 .scale-selectors {
     display: flex;
     justify-content: center;
     gap: 10px;
-    margin: 20px 0;
+    margin-bottom: 20px;
 }
 
 select {
     padding: 10px;
     font-size: 1em;
     border-radius: 5px;
-}
-
-#fretboard {
-    margin-top: 20px;
 }
 
 #fretboard img {
